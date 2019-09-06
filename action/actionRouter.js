@@ -28,10 +28,9 @@ actionRouter.get('/:id', (req,res) => {
     })
 });
 
-actionRouter.post('/:id', (req,res) => {
-    const action = req.body;
-    console.log(action)
-    actionDB.insert(action)
+actionRouter.post('/', (req,res) => {
+    const newAction = req.body;
+    actionDB.insert(newAction)
     .then( newaction => {
         res.status(201).json(newaction);
     })
