@@ -31,6 +31,18 @@ projectRouter.get('/:id', (req,res) => {
     })
 })
 
+projectRouter.post('/:id', (req,res) => {
+    const project = req.body;
+    console.log(project)
+    projectDB.insert(project)
+    .then( newProject => {
+        res.status(201).json(newProject);
+    })
+    .catch( err => {
+        res.status(500).json(err.message);
+    })
+})
+
 
 
 module.exports = projectRouter;
