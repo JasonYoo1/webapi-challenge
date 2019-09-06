@@ -1,3 +1,5 @@
+const knex = require('knex');
+const knexConfig = require('../../knexfile');
 const db = require('../dbConfig.js');
 const mappers = require('./mappers');
 

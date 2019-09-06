@@ -1,9 +1,11 @@
 const express = require('express');
+const projectRouter = require('./project/projectRouter');
 
 const server = express();
 
 server.use(express.json());
 server.use(logger);
+
 
 server.get('/', (req, res) => {
   res.send(`<h2>Initial Commit</h2>`);

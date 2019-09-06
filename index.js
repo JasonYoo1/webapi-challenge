@@ -14,7 +14,11 @@ Go code!
 */
 
 
-
+const express = require('express')
 const server = require('./server.js');
+
+server.use(express.json());
+
+
 
 server.listen(6000, () =>  console.log("server on port 6000"));
