@@ -66,7 +66,20 @@ projectRouter.delete('/:id', (req, res)=>{
         console.log(err);
         res.status(500).json({error: 'deleting error'})
     })
+});
+
+projectRouter.get('/:id/actions', (req,res)=>{
+    const id = req.params;
+    projectDB.getProjectActions(id)
+    .then(actions=>{
+        res.status(200).json(actions);
+    })
+    .catch(err=>{
+        res.status(500).json({err: "error in actions"})
+    })
 })
+
+
 
 
 // function validateProjectId(req, res, next) {
