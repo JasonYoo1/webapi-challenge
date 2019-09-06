@@ -64,16 +64,5 @@ actionRouter.delete('/:id', (req, res)=>{
     })
 });
 
-actionRouter.get('/:id/actions', (req,res)=>{
-    const id = req.params;
-    actionDB.getactionActions(id)
-    .then(actions=>{
-        res.status(200).json(actions);
-    })
-    .catch(err=>{
-        res.status(500).json({err: "error in actions"})
-    })
-})
-
 
 module.exports = actionRouter;
