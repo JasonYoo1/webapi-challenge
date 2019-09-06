@@ -1,10 +1,11 @@
 const express = require('express');
 const projectRouter = require('./project/projectRouter');
 
+
 const server = express();
 
 server.use(express.json());
-server.use(logger);
+server.use('/projects', projectRouter)
 
 
 server.get('/', (req, res) => {
