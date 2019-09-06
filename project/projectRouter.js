@@ -29,7 +29,7 @@ projectRouter.get('/:id', (req,res) => {
     .catch( err => {
         res.status(500).json(err.message);
     })
-})
+});
 
 projectRouter.post('/:id', (req,res) => {
     const project = req.body;
@@ -41,7 +41,37 @@ projectRouter.post('/:id', (req,res) => {
     .catch( err => {
         res.status(500).json(err.message);
     })
+});
+
+projectRouter.put('/:id',(req, res)=>{
+    const { id } = req.params;
+    const {name, description} = req.body;
+
+    projectDB.update(id , {name, description})
+    .then(update => {
+        if(update) {
+            res.status(200).json(update)
+        } else {
+            res.status(500).json({err: `error in updating`})
+        }
+    })
+    
+    .catch( err => { console.log(err); res.status(500).json(err.message) })
+
 })
+
+// function validateProjectId(req, res, next) {
+//     const { id } = req.params;
+//     projectDB.getById(id)
+//       .then(user => {
+//         if (user) {
+//           req.user = user;
+//           next();
+//         } else {
+//           res.status(404).json({error: "User with id does not exist"});
+//         }
+//       });
+//   };
 
 
 
