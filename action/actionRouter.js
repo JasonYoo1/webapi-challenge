@@ -41,9 +41,9 @@ actionRouter.post('/', (req,res) => {
 
 actionRouter.put('/:id',(req, res)=>{
     const { id } = req.params;
-    const {name, description} = req.body;
+    const {project_id, description, notes} = req.body;
 
-    actionDB.update(id , {name, description})
+    actionDB.update(id , {project_id, description, notes})
     .then(update => {
         if(update) {
             res.status(200).json(update)
