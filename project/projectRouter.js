@@ -55,10 +55,19 @@ projectRouter.put('/:id',(req, res)=>{
             res.status(500).json({err: `error in updating`})
         }
     })
-    
     .catch( err => { console.log(err); res.status(500).json(err.message) })
+});
 
+projectRouter.delete('/:id', (req, res)=>{
+    const { id } = req.params;
+    projectDB.remove(id)
+    .then(()=> res.status(204).end())
+    .catch(err=> {
+        console.log(err);
+        res.status(500).json({error: 'deleting error'})
+    })
 })
+
 
 // function validateProjectId(req, res, next) {
 //     const { id } = req.params;
