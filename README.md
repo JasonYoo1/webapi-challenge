@@ -25,8 +25,11 @@ In this challenge, create a web API around the following resources: `Projects` a
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] Mention two parts of Express that you learned about this week.
+    middleware
+    routing
 
 - [ ] Describe Middleware?
+    middleware is like a pipe with a filter where the information has to pass through either to a) make the information actual information b) stop a 
 
 - [ ] Describe a Resource?
 
